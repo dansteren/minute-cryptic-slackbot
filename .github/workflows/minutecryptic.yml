@@ -1,0 +1,21 @@
+name: Daily MinuteCryptic
+
+on:
+  schedule:
+    - cron: "0 15 * * *" # 9 AM Denver
+  workflow_dispatch:
+
+jobs:
+  post-clue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+      - run: node index.js
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
