@@ -50,7 +50,7 @@ export async function handler() {
       type: "context",
       elements: [
         {
-          type: "plain_text",
+          type: "mrkdwn",
           text: `Clue by ${data.setterName} | <${data.explainerVideo}|hint>`
         }
       ]
