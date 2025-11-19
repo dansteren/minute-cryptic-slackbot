@@ -60,7 +60,8 @@ export async function handler() {
   // 4. Post to Slack
   await slack.chat.postMessage({
     channel: CHANNEL_ID,
-    blocks
+    blocks,
+    text: `Clue for ${dateDisplay}: ${clueText} ${lengthString}`
   });
 
   return { statusCode: 200, body: "ok" };
