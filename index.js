@@ -14,7 +14,7 @@ export async function handler() {
 
   // 2. Build clue text
   const clueText = data.clue.map(x => x.text).join(" ");
-  const lengthString = `(${data.config.join("-")})`;
+  const lengthString = `(${data.config.join(",")})`;
 
   // Let’s reformat date → 18 Nov. 2025
   const dateObj = new Date(data.date);
@@ -51,7 +51,7 @@ export async function handler() {
       elements: [
         {
           type: "plain_text",
-          text: `Clue by ${data.setterName}`
+          text: `Clue by ${data.setterName} | <${data.explainerVideo}|hint>`
         }
       ]
     }
