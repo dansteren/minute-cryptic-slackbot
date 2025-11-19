@@ -61,7 +61,9 @@ export async function handler() {
   await slack.chat.postMessage({
     channel: CHANNEL_ID,
     blocks,
-    text: `Clue for ${dateDisplay}: ${clueText} ${lengthString}`
+    text: `Clue for ${dateDisplay}: ${clueText} ${lengthString}`,
+    unfurl_links: false,
+    unfurl_media: false
   });
 
   return { statusCode: 200, body: "ok" };
