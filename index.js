@@ -66,3 +66,7 @@ export async function handler() {
 
   return { statusCode: 200, body: "ok" };
 }
+
+if (process.env.NODE_ENV !== "production") {
+  handler()
+}
